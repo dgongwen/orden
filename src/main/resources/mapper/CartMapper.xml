@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgw.orden.mapper.CartMapper">
+<resultMap id="CartResult" type="Carts">
+<id property="cartId" column="cartId"/>
+<result property="productId" column="productId"/>
+<result property="productPrice" column="productPrice"/>
+<result property="productNum" column="productNum"/>
+<result property="status" column="status"/>
+</resultMap>
+<select id="selectById" resultType="com.dgw.orden.entity.Carts">
+select product_price,product_num from carts where cart_id = #{cartId}
+</select>
+   
+</mapper>

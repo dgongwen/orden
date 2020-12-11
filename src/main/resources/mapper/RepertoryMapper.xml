@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgw.orden.mapper.RepertoryMapper">
+<resultMap id="RepertoryResult" type="Repertory">
+<id property="repertoryId" column="repertoryId"/>
+<result property="productId" column="productId"/>
+<result property="status" column="status"/>
+<result property="repertoryCount" column="repertoryCount"/>
+</resultMap>
+<select id="selectNum" resultType="com.dgw.orden.entity.Repertory">
+select repertory_count from repertory where repertory_id = #{repertoryId}
+</select>
+   
+</mapper>

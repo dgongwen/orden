@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dgw.orden.mapper.TorderMapper">
+<resultMap id="TorderResult" type="Torder">
+<id column="orden_id" jdbcType="BIGINT" property="ordenId" />
+    <result column="orden_sn" jdbcType="VARCHAR" property="ordenSn" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+</resultMap>
+<!--插入订单-->
+<insert id="insertOrder">
+insert into torder (orden_sn,receiver_name,receiver_phone,receiver_address,total_amount)values
+(#{torder.ordenSn},#{torder.receiverName},#{torder.receiverPhone},#{torder.receiverAddress},#{torder.totalAmount})
+</insert>
+<!--查询订单-->
+<select id="selectTorder" resultType="com.dgw.orden.entity.Torder">
+select orden_sn,receiver_name,receiver_phone,receiver_address,total_amount from torder where orden_id = #{torderId}
+</select>
+   
+</mapper>
